@@ -25,6 +25,14 @@ The output is designed to act as a **pre-check and decision input** for:
 
 ---
 
+## Why This Exists
+
+While working on CI/CD workflows across edge devices, Jetson boards, and x86/HPC machines, I kept running into the same problem: before doing anything useful, I had to manually figure out what the target system could actually do. Architecture, GPU availability, CUDA/TensorRT versions, Docker runtime support - all things that *should* be obvious, but usually weren’t.
+
+There were already tools for this, but most were bloated, required installation, modified the system, or pulled in unnecessary dependencies just to answer simple questions. All I wanted was a **one-click, read-only, zero-overhead way** to get reliable system details upfront, so CI/CD pipelines and container builds could make the right decision before failing later. This utility came out of that need - a small, non-invasive system fingerprint that does exactly one job: tell your workflows what they’re really running on, quickly and safely.
+
+---
+
 ## 1. Linux (Ubuntu, Debian, Jetson, Raspberry Pi, Servers)
 
 ### Requirements
@@ -260,4 +268,5 @@ This tool is intentionally **not** an installer or configurator.
 It is a **decision-enabling pre-check**, designed to provide accurate system capability data so that higher-level automation (CI/CD, AI/ML bootstrapping, Docker builds, edge deployments) can run **safely, deterministically, and efficiently** across diverse hardware.
 
 ---
+
 
